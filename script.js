@@ -8,3 +8,18 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     }
   });
 });
+document.querySelectorAll('a[href*="go.hotmart.com/U107411763I"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const destino = this.href;
+
+    if (typeof fbq === 'function') {
+      fbq('track', 'ViewContent');
+    }
+
+    setTimeout(function() {
+      window.location.href = destino;
+    }, 500);
+  });
+});
